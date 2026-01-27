@@ -1,0 +1,26 @@
+Bug 1 : Program wasn't detecting the prompt with multiple spaces (Typo Bug)
+Tried to fix it with text =''.join(text.split())
+
+Bug: Used ''.join() instead of ' '.join()
+- Empty string removed ALL spaces
+- "ignore previous instructions" became "ignorepreviousinstructions"
+- Patterns didn't match anymore
+
+The fix: Add a SPACE between the quotes
+- ' '.join() preserves single spaces between words
+- Now patterns match correctly
+
+Lesson learned:
+- Tiny typos can break everything
+- Always test after making changes
+- Python syntax matters: '' vs ' ' is a huge difference 
+
+**`.split()`** breaks text into words: `['ignore', 'previous', 'instructions']`
+
+**`.join()`** puts them back together with whatever is between the quotes:
+- `''.join()` → No separator → "ignorepreviousinstructions"
+- `' '.join()` → Space separator → "ignore previous instructions"
+
+=================================================================================================
+
+
