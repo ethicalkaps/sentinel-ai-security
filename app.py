@@ -1,13 +1,13 @@
-from sentinel import detect_jailbreak
+from veilguard import detect_jailbreak
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from typing import List
 
 #Creating app
 app=FastAPI(
-    title="Sentinel AI Security",
-    description="Detects prompt Injection attacks in real-time",
-    version="0.2"
+    title="VeilGuard AI",
+    description="AI Security - Prompt Injection Detection API",
+    version="0.3.0"
 )
 
 # Request Model
@@ -55,9 +55,10 @@ class SecurityCheckResponse(BaseModel):
 @app.get("/")
 def homepage():
     return {
-        "name": "Sentinel",
-        "version":"0.2",
-        "description":"AI Security - Prompt Injection Detection API",
+        "name": "VeilGuard AI",
+        "tagline": "The Invisible Shield for Your AI",
+        "version":"0.3.0",
+        "description":"Semantic ML-powered prompt injection detection",
         "author": "@rapidgrasper",    
         "endpoints": {
             "GET /":"API Information",
@@ -65,7 +66,8 @@ def homepage():
             "POST /check":"Check input for threats",
             "GET /docs": "Interactive API documentation"
         },
-        "github": "https://github.com/ethicalkaps/sentinel-ai-security",
+        "website": "https://veilguardai.com",
+        "github": "https://github.com/ethicalkaps/veilguard-api",
         "youtube": "https://youtube.com/@rapidgrasper"
     }
 
@@ -75,7 +77,8 @@ def homepage():
 def health_check():
     return{
         "status":"running",
-        "version":"0.2"
+        "version":"0.3.0",
+        "service": "VeilGuard AI"
     }
 
 @app.post("/check", response_model=SecurityCheckResponse)
@@ -87,7 +90,7 @@ def check_for_threats(request: SecurityCheckRequest):
     and returns a threat assessment. 
     """
     try:
-        #Run the Sentinel Detection
+        #Run the VeilGuard Detection
         result = detect_jailbreak(request.user_input)
         
         #Add the source back to the response

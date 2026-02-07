@@ -3,10 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
-*.pyc
-*.pyo
-*.pyd
 .Python
+env/
+venv/
+ENV/
 build/
 develop-eggs/
 dist/
@@ -25,32 +25,40 @@ wheels/
 
 # Virtual Environment
 venv/
-env/
 ENV/
+env/
+.venv
 
-# VS Code
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# IDE
 .vscode/
-*.code-workspace
-
-# PyCharm
 .idea/
+*.swp
+*.swo
+*~
 
-# Operating System
+# OS
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
-# Temporary files
+# Logs
 *.log
-*.tmp
-temp/
 
-#FastAPI
+# Database
+*.db
+*.sqlite3
+
+# Testing
 .pytest_cache/
+.coverage
+htmlcov/
 
-jailbreak-examples.txt
-learning-notes.txt
+# ML Models (can be large)
+models/
+*.pt
+*.pth
+*.bin
